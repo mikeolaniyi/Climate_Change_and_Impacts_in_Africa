@@ -95,18 +95,17 @@ totals_by_country_africa = datasets['TOTALS BY COUNTRY'].query('C_group_IM24_sh 
 # Tunisia:    North Africa
 # Mozambique: South Africa
 temperatures = pd.read_csv('temperatures.csv')
-
+```
 
 ## Tasks 1: Clean and tidy the datasets
 
-### 
 
 - Rename `C_group_IM24_sh` to `Region`, `Country_code_A3` to `Code`, and `ipcc_code_2006_for_standard_report_name` to `Industry` in the corresponding African datasets.
 - Drop `IPCC_annex`, `ipcc_code_2006_for_standard_report`, and `Substance` from the corresponding datasets.
 - Melt `Y_1970` to `Y_2021` into a two columns `Year` and `CO2`. Drop rows where `CO2` is missing.
 - Convert `Year` to `int` type.
 
-
+```python
 # Rename columns
 ipcc_2006_africa.rename(columns={'C_group_IM24_sh':'Region','Country_code_A3':'Code','ipcc_code_2006_for_standard_report_name':'Industry'}, inplace=True)
 
@@ -130,10 +129,11 @@ ipcc_2006_africa = ipcc_2006_africa.dropna(subset=['CO2'])
 
 # check output
 ipcc_2006_africa
+```
 
 ![ipcc_2006_africa](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/c866f189-99db-4844-a250-3c275d64dd7c)
 
-
+```python
 # Rename columns
 totals_by_country_africa.rename(columns={'C_group_IM24_sh':'Region','Country_code_A3':'Code'}, inplace=True)
 
@@ -155,6 +155,7 @@ totals_by_country_africa['Year']= totals_by_country_africa.Year.astype(int)
 # Drop row with missing values
 totals_by_country_africa = totals_by_country_africa.dropna(subset=['CO2'])
 totals_by_country_africa
+```
 
 ![totals_by_country_africa](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/8ac67ddc-e2bc-4bc3-860b-18ba7e20c2eb)
 
@@ -164,12 +165,14 @@ totals_by_country_africa
 
 - Using `totals_by_country_africa`, create a line plot of `CO2` vs. `Year` in each `Region` to show the trend of CO2 levels by year.
 
+```python
 # line chart
 sns.set_style('darkgrid')
 sns.lineplot(x='Year',y='CO2', data=totals_by_country_africa, hue='Region', ci=None)
 plt.ylabel('CO2 (kt)')
 plt.ylim([0,110000])
 plt.title('CO2 levels across the African Regions between 1970 and 2021');
+```
 
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/750855f7-25bc-45db-a96f-0eee5a8cecd9)
 
@@ -179,10 +182,12 @@ plt.title('CO2 levels across the African Regions between 1970 and 2021');
 - Using the `totals_by_country_africa` dataset, conduct a Spearman's correlation to determine the relationship between time (`Year`) and `CO2` within each African `Region`.
 - Save the results in a variable called `relationship_btw_time_CO2`.
 
+```python
 # Group relationship_btw_time_CO2 by region 
 relationship_btw_time_CO2 = totals_by_country_africa.groupby('Region').corr(method='spearman')
 
 relationship_btw_time_CO2
+```
 
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/5163e0e0-9a06-423c-b5fe-3e2867f0bc60)
 
@@ -193,6 +198,7 @@ relationship_btw_time_CO2
 - Conducted a posthoc test (with Bonferroni correction) using `pingouin.pairwise_tests()` to find the source of the significant difference. Saved the results as `pw_ttest_result`.
 - Is it true that the `CO2` levels of the `Southern_Africa` and `Northern_Africa` region do not differ significantly? The previous task should provide you with the answer.
 
+```python
 # Analysis of Variance (ANOVA)
 aov_results = pingouin.anova(dv='CO2', data=totals_by_country_africa, between='Region')
 
@@ -201,6 +207,7 @@ pw_ttest_result = pingouin.pairwise_ttests(dv='CO2', data=totals_by_country_afri
 
 # Results of pairwise t-tests
 pw_ttest_result
+```
 
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/c73c1123-5271-41a2-90a3-6a759815b251)
 
@@ -213,7 +220,7 @@ pw_ttest_result
 - Get the top 5 industries for each region
 - save it to variable `top_5_industries` for each region.
 
-
+```python
 # Count the occurrences of each combination of 'Region' and 'Industry'
 count = ipcc_2006_africa.groupby(['Region', 'Industry']).size().reset_index(name='Count')
 
@@ -224,6 +231,7 @@ count = count.sort_values(['Region', 'Count'], ascending=False)
 top_5_industries = count.groupby('Region').head().reset_index(drop=True)
 
 top_5_industries
+```
 
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/766668d6-395c-4038-9192-3410fa199ea0)
 
@@ -234,7 +242,7 @@ top_5_industries
 - Calculate the average `CO2` emissions for each group.
 - Find the `Industry` with the maximum average `CO2` emissions in each region.
 
-
+```python
 # Calculate the average CO2 emissions for each combination of 'Region' and 'Industry'
 average = ipcc_2006_africa.groupby(['Region', 'Industry']).CO2.mean().reset_index()
 
@@ -246,9 +254,12 @@ top_5_industries = average.groupby('Region').head(1).reset_index(drop=True)
 
 # Check result
 top_5_industries
+```
 
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/cbe997a2-395e-44ab-ab80-97dac226563b)
 
+
+```python
 
 # Calculate average CO2 emissions for each 'Region' and 'Industry' combination
 average = ipcc_2006_africa.groupby(['Region', 'Industry'])['CO2'].mean().reset_index()
@@ -258,6 +269,7 @@ max_co2_industries = average.loc[average.groupby('Region')['CO2'].idxmax()].rese
 
 # Check results
 max_co2_industries
+```
 
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/11d55ba4-bbff-4caa-9504-5e1d48947e93)
 
@@ -270,6 +282,8 @@ max_co2_industries
 - Predict the values of `CO2` using the `reg.predict()` and the data provided. Save the result as `predicted_co2`. 
 - Convert `predicted_co2` values from log base 10 to decimals and round to 2 d.p using `np.round()`.
 
+
+```python
 
 # Create a new DataFrame with 'Year' and 'Region' 
 newdata = pd.DataFrame({'Year': 2025, 'Region': african_regions})
@@ -295,7 +309,7 @@ predicted_co2 = reg.predict(newdata)
 # Transform predicted values back to original scale using 10^x
 predicted_co2 = np.round(10**predicted_co2, 2)
 
-
+```
 
 ## Instruction 8: Determine if CO2 levels affect annual temperature in the selected African countries
 
@@ -307,6 +321,7 @@ predicted_co2 = np.round(10**predicted_co2, 2)
 - What is the adjusted R squared value of the model?
 
 
+```python
 
 # List of African countries
 countries = ["Ethiopia", "Mozambique", "Nigeria", "Tunisia"]
