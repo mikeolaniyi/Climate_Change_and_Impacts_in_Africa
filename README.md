@@ -7,11 +7,16 @@
 
 
 ## Overview
-According to the [United Nations](https://www.un.org/en/climatechange/what-is-climate-change), Climate change refers to long-term shifts in temperatures and weather patterns. Such shifts can be natural, due to changes in the sun’s activity or large volcanic eruptions. But since the 1800s, **human activities** have been the main driver of climate change, primarily due to the burning of fossil fuels like coal, oil, and gas. This project seeks to Predict the CO2 levels (at each African region) in the year 2025, also to determine if `CO2` levels affect annual `temperature` in the selected African countries.
+According to the [United Nations](https://www.un.org/en/climatechange/what-is-climate-change), Climate change refers to long-term shifts in temperatures and weather patterns. Such shifts can be natural, due to changes in the sun’s activity or large volcanic eruptions. But since the 1800s, **human activities** have been the main driver of climate change, primarily due to the burning of fossil fuels like coal, oil, and gas. This project seeks to find the CO2 levels (at each African region) in the year 2025, also to determine if `CO2` levels affect annual `temperature` in the selected African countries.
 
 ## Problem
 The consequences of climate change now include, among others, intense droughts, water scarcity, severe fires, rising sea levels, flooding, melting polar ice, catastrophic storms, and declining biodiversity.
 
+
+## Analysis Conclusion Summary
+In conclusion, the regression model provides insights into how CO2 levels and the countries' locations in Africa impact annual temperatures. It suggests that higher CO2 levels are associated with higher temperatures.
+
+![Analysis on Climate Change and Impacts in Africa Executive Summary](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/86a631c1-0e8c-4b4f-b546-8ede4cd3e8f3)
 
 
 ## Dataset
@@ -344,4 +349,15 @@ model_temp.summary()
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/81185974-c55a-4fa6-ab6a-45f5edcca5d9)
 
 
+## Summary Conclusion:
 
+The linear regression model was developed to understand the relationship between CO2 levels (log10-transformed), the countries in Africa (Mozambique, Nigeria, Tunisia), and the annual temperatures in those countries. The analysis produced several key findings:
+
+- **Coefficient Interpretation:** The coefficients associated with each country indicate their impact on annual temperatures when compared to the reference category. Mozambique and Nigeria are associated with an increase in temperature, while Tunisia is associated with a decrease.
+
+- **CO2 Impact:** The coefficient for log10(CO2) suggests a positive and significant relationship between CO2 levels and temperature. An increase in log10-transformed CO2 levels is associated with higher temperatures.
+
+- **Statistical Tests:** The Omnibus test indicates that the overall fit of the model is not significant, suggesting that there may be other variables not considered in the model that also influence temperatures. The Durbin-Watson test suggests no autocorrelation in the residuals. The Jarque-Bera test suggests that the residuals are approximately normally distributed. Skew and kurtosis values are close to zero, indicating that the residuals have a distribution close to normal.
+
+# Analysis Conclusion Summary
+In conclusion, the regression model provides insights into how CO2 levels and the countries' locations in Africa impact annual temperatures. It suggests that higher CO2 levels are associated with higher temperatures.
