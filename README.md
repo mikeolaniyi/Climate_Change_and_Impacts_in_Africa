@@ -16,7 +16,8 @@ The consequences of climate change now include, among others, intense droughts, 
 ## Analysis Conclusion Summary
 In conclusion, the regression model provides insights into how CO2 levels and the countries' locations in Africa impact annual temperatures. It suggests that higher CO2 levels are associated with higher temperatures.
 
-![Analysis on Climate Change and Impacts in Africa Executive Summary](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/86a631c1-0e8c-4b4f-b546-8ede4cd3e8f3)
+![Analysis on Climate Change and Impacts in Africa Executive Summary](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/40870c4f-3a29-435f-b9e1-43eeebaabe31)
+
 
 
 ## Dataset
