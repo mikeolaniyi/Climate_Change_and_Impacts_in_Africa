@@ -340,8 +340,8 @@ model_temp = OLS.from_formula("Temperature ~ np.log10(CO2) + Name", data=joined)
 
 # Show summary
 model_temp.summary()
-
+```
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/81185974-c55a-4fa6-ab6a-45f5edcca5d9)
 
-```
+
 
