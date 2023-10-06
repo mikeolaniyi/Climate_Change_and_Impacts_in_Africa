@@ -317,7 +317,7 @@ predicted_co2 = np.round(10**predicted_co2, 2)
 
 ```
 
-## Instruction 8: Determine if CO2 levels affect annual temperature in the selected African countries
+## Task 8: Determine if CO2 levels affect annual temperature in the selected African countries
 
 - Select `Name`, `Year` and `CO2` of countries `countries`. Save the result as `selected_countries`.
 - Convert `temperatures` dataset from wide to long format. Set the new column names to `Name` and `Temperature`. Save the result as `temp_long`.
