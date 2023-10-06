@@ -351,7 +351,7 @@ model_temp.summary()
 ![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/81185974-c55a-4fa6-ab6a-45f5edcca5d9)
 
 
-## Summary Conclusion:
+## Findings and Conclusion:
 
 The linear regression model was developed to understand the relationship between CO2 levels (log10-transformed), the countries in Africa (Mozambique, Nigeria, Tunisia), and the annual temperatures in those countries. The analysis produced several key findings:
 
