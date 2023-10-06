@@ -1,4 +1,4 @@
-# Predictive Analysis on Climate Change and Impacts in Africa
+![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/38e98121-96e0-46f2-bf8e-476af95d5c4f)![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/997e6acb-4de8-4fa8-b472-dccb04336873)# Predictive Analysis on Climate Change and Impacts in Africa
 ## - By Michael Michael Jeremiah
 
 
@@ -16,7 +16,8 @@ The consequences of climate change now include, among others, intense droughts, 
 ## Analysis Conclusion Summary
 In conclusion, the regression model provides insights into how CO2 levels and the countries' locations in Africa impact annual temperatures. It suggests that higher CO2 levels are associated with higher temperatures.
 
-![Analysis on Climate Change and Impacts in Africa Executive Summary](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/40870c4f-3a29-435f-b9e1-43eeebaabe31)
+![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/68647f98-beef-4767-9e15-4ba4ecfdff22)
+
 
 
 
