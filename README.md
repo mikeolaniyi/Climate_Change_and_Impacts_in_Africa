@@ -1,6 +1,6 @@
 # Predictive Analysis on Climate Change and Impacts in Africa
 
-- By Michael Michael Jeremiah
+By Michael Michael Jeremiah
 
 ![Climate change1](Climate%20change1.jpg)
 
