@@ -1,10 +1,15 @@
-![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/38e98121-96e0-46f2-bf8e-476af95d5c4f)![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/997e6acb-4de8-4fa8-b472-dccb04336873)# Predictive Analysis on Climate Change and Impacts in Africa
-## - By Michael Michael Jeremiah
+# Predictive Analysis on Climate Change and Impacts in Africa
 
+- By Michael Michael Jeremiah
 
 ![Climate change1](Climate%20change1.jpg)
- 
 
+![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/38e98121-96e0-46f2-bf8e-476af95d5c4f)![Executive Summary of the 
+
+
+
+
+ 
 
 ## Overview
 According to the [United Nations](https://www.un.org/en/climatechange/what-is-climate-change), Climate change refers to long-term shifts in temperatures and weather patterns. Such shifts can be natural, due to changes in the sun’s activity or large volcanic eruptions. But since the 1800s, **human activities** have been the main driver of climate change, primarily due to the burning of fossil fuels like coal, oil, and gas. This project seeks to find the CO2 levels (at each African region) in the year 2025, also to determine if `CO2` levels affect annual `temperature` in the selected African countries.
@@ -15,8 +20,6 @@ The consequences of climate change now include, among others, intense droughts, 
 
 ## Analysis Conclusion Summary
 In conclusion, the regression model provides insights into how CO2 levels and the countries' locations in Africa impact annual temperatures. It suggests that higher CO2 levels are associated with higher temperatures.
-
-![Executive Summary of the Analysis on Climate Change and Its Impacts in Africa](https://github.com/mikeolaniyi/Predictive_Analysis_on_Climate_Change_and_Impacts_in_Africa/assets/120651356/68647f98-beef-4767-9e15-4ba4ecfdff22)
 
 
 
@@ -137,8 +140,10 @@ ipcc_2006_africa = ipcc_2006_africa.dropna(subset=['CO2'])
 # check output
 ipcc_2006_africa
 ```
+**Cleaned dataset**
 
-![ipcc_2006_africa](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/c866f189-99db-4844-a250-3c275d64dd7c)
+![image](https://github.com/user-attachments/assets/6b4eaa16-e486-4ec9-a06e-6277994be709)
+
 
 ```python
 # Rename columns
@@ -164,7 +169,10 @@ totals_by_country_africa = totals_by_country_africa.dropna(subset=['CO2'])
 totals_by_country_africa
 ```
 
-![totals_by_country_africa](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/8ac67ddc-e2bc-4bc3-860b-18ba7e20c2eb)
+**Output: Cleaned totals by country Africa**
+
+![image](https://github.com/user-attachments/assets/4dffc63c-76a2-49dc-a4ac-823e83667e65)
+
 
 
 
@@ -195,8 +203,9 @@ relationship_btw_time_CO2 = totals_by_country_africa.groupby('Region').corr(meth
 
 relationship_btw_time_CO2
 ```
+Output: Relationship between time CO2 by region
+![image](https://github.com/user-attachments/assets/dc95d665-9d78-46be-8b55-92be415545ee)
 
-![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/5163e0e0-9a06-423c-b5fe-3e2867f0bc60)
 
 
 ## Tasks 4: Determine if there is a significant difference in the CO2 levels among the African Regions
@@ -216,7 +225,10 @@ pw_ttest_result = pingouin.pairwise_ttests(dv='CO2', data=totals_by_country_afri
 pw_ttest_result
 ```
 
-![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/c73c1123-5271-41a2-90a3-6a759815b251)
+Output: Analysis of Variance (ANOVA)
+
+![image](https://github.com/user-attachments/assets/43c9d5bb-773e-4672-968b-cf85e7bfbcaa)
+
 
 
 ## Tasks 5: Determine the most common (top 5) industries in each African region.
@@ -240,7 +252,11 @@ top_5_industries = count.groupby('Region').head().reset_index(drop=True)
 top_5_industries
 ```
 
-![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/766668d6-395c-4038-9192-3410fa199ea0)
+
+Output: number of occurrences of each combination of 'Region' and 'Industry'
+
+![image](https://github.com/user-attachments/assets/a63335f5-6b71-4df1-9c7a-987c78c76562)
+
 
 
 ## Tasks 6: Determine the industry responsible for the most amount of CO2 (on average) in each African Region
@@ -263,7 +279,11 @@ top_5_industries = average.groupby('Region').head(1).reset_index(drop=True)
 top_5_industries
 ```
 
-![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/cbe997a2-395e-44ab-ab80-97dac226563b)
+Output: Average CO2 emissions for each combination of 'Region' and 'Industry'
+
+
+![image](https://github.com/user-attachments/assets/7e9c3d15-d017-4aeb-a903-c44db660f4dd)
+
 
 
 ```python
@@ -277,8 +297,10 @@ max_co2_industries = average.loc[average.groupby('Region')['CO2'].idxmax()].rese
 # Check results
 max_co2_industries
 ```
+Output: Average CO2 emissions for each 'Region' and 'Industry' combination
 
-![image](https://github.com/mikeolaniyi/Climate_Change_and_Impacts_in_Africa/assets/120651356/11d55ba4-bbff-4caa-9504-5e1d48947e93)
+![image](https://github.com/user-attachments/assets/8fcd57b9-ac09-41c6-adf7-54181c4e3bff)
+
 
 
 
@@ -323,7 +345,7 @@ predicted_co2 = np.round(10**predicted_co2, 2)
 - Select `Name`, `Year` and `CO2` of countries `countries`. Save the result as `selected_countries`.
 - Convert `temperatures` dataset from wide to long format. Set the new column names to `Name` and `Temperature`. Save the result as `temp_long`.
 - Perform an inner join between `selected_countries` and `temp_long` on `Name` and `Year`. Save the result as `joined`.
-- Create a linear model of `Temperature` by `CO2` and `Name`. Save the result as `model_temp`. *The code has been added for you.*
+- Create a linear model of `Temperature` by `CO2` and `Name`. Save the result as `model_temp`.
 - A one unit rise in log10 `CO2` leads to how many degrees rise in temperature? Run `model_temp.summary()` to find out!
 - What is the adjusted R squared value of the model?
 
@@ -363,3 +385,12 @@ The linear regression model was developed to understand the relationship between
 
 # Analysis Conclusion Summary
 In conclusion, the regression model provides insights into how CO2 levels and the countries' locations in Africa impact annual temperatures. It suggests that higher CO2 levels are associated with higher temperatures.
+
+
+
+Thank you for taking out time to read through this project, kindly drop comments on your thoughts, suggestions etc.
+
+
+
+**By Michael Olaniyi Jeremiah**
+
